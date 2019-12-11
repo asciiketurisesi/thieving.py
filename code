@@ -1,0 +1,16 @@
+from datetime import datetime
+import requests
+
+currentDT = datetime.now()
+
+print("Current date:")
+print(currentDT.strftime("%Y-%m-%d %H:%M:%S"))
+print(end='\n')
+print("Time left until @kirdeikiux will still not have 99 thieving:")
+print(str(31 - int(currentDT.strftime("%d"))) + " days, " + str(24 - int(currentDT.strftime("%H"))) + " hours, " + str(60 - int(currentDT.strftime("%M"))) + " minutes and " + str(60 -int(currentDT.strftime("%S"))) + " seconds.")
+
+response = requests.get('https://secure.runescape.com/m=hiscore_oldschool_ironman/hiscorepersonal?user1=bwana%20meme')
+
+response = response.text
+
+print("\ncurrent exp: " + response[11943:11952])
